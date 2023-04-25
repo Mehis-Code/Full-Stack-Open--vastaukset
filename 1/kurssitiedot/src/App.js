@@ -1,40 +1,46 @@
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
+  const course = {
+    name: 'Half Stack application development',
+    parts: [
+      {
+        name: 'Fundamentals of React',
+        exercises: 10
+      },
+      {
+        name: 'Using props to pass data',
+        exercises: 7
+      },
+      {
+        name: 'State of a component',
+        exercises: 14
+      }
+    ]
+  }
 
   return (
     <div>
       <Header course={course} />
-      <Content part={part1} excercises={exercises1}/>
-      <Content part={part2} excercises={exercises2}/>
-      <Content part={part3} excercises={exercises3}/>
-      <Total array={[exercises1, exercises2, exercises3]}/>
+      <Content parts={course} /> 
+      <Total parts={course} />
     </div>
   )
 }
 
 function Header(props){
-  return <p>{props.course}</p>
+  return <p>{props.course.name}</p>
 }
 
-
 function Content(props){
-  return <p>{props.part} {props.excercises}</p>
+  let a = props.parts.parts
+  return  a.map(i => <p>{i.name} {i.exercises}</p>
+  );
 }
 
 function Total(props){
-  let i = 0;
-  let a = 0;
-  while(i < props.array.length){
-    a += props.array[i];
-    i++;
-  }
-  return <p>Number of exercises {a}</p>;
+  const a = props.parts.parts;
+  let lasku = 0;
+  a.forEach(x => lasku += x.exercises);
+  return <p>Number of exercises {lasku}</p>;
 }
 
 export default App
