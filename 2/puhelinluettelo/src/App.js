@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import services from './services/nettijutut';
+import './styles.css'
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
@@ -7,6 +8,7 @@ const App = () => {
   const [newNumb, setNewNumb] = useState('')
   const [filterA, setFilter] = useState('')
   const [newArr, setNewArr] = useState([])
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     services.getAll().then(response => {
@@ -20,15 +22,28 @@ const App = () => {
       return;
     }
     services.remove(id).then(() => {
+      setError(`Removed ${name}`);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
       const updatedPersons = persons.filter(person => person.id !== id);
       setPersons(updatedPersons);
       setNewArr(updatedPersons);
       
+    }).catch(error => {
+      setError(`Information of ${newName} has already been removed from the server`);
+      const updatedPersons = persons.filter(person => person.id !== id);
+      setPersons(updatedPersons);
+      setNewArr(updatedPersons);
+      setTimeout(() => {
+      setError(null);
+    }, 3000);
     });
   };
 
   return (
     <div>
+      <Notification error={error}/>
       <Phonebook persons={persons} filter={filterA} setFilter={setFilter} setNewArr={setNewArr}/>
       <PersonForm         
         persons={persons}
@@ -37,8 +52,32 @@ const App = () => {
         setNewName={setNewName}
         setNewNumb={setNewNumb}
         setPersons={setPersons} 
-        setNewArr={setNewArr}/>
+        setNewArr={setNewArr}
+        setError={setError}/>
       <Persons persons={newArr} handleDelete={handleDelete}/>
+    </div>
+  )
+}
+
+const Notification = ({error}) => {
+  if (error === null) {
+    return null
+  }
+  if (error[0] == 'A') {
+    return(
+    <div className="added">
+    {error}
+  </div>)
+  }
+  if (error[0] == 'C') {
+    return(
+    <div className="changed">
+    {error}
+  </div>)
+  }
+  return (
+    <div className="error">
+      {error}
     </div>
   )
 }
@@ -69,7 +108,7 @@ const Persons = ( {persons, handleDelete}) => {
   )
 }
 
-const PersonForm = ({ persons, newName, newNumb, setNewName, setNewNumb, setPersons, setNewArr}) => {
+const PersonForm = ({ persons, newName, newNumb, setNewName, setNewNumb, setPersons, setNewArr, setError}) => {
   const handlePer = (event) => {
     setNewName(event.target.value)
   }
@@ -98,25 +137,56 @@ const PersonForm = ({ persons, newName, newNumb, setNewName, setNewNumb, setPers
         services.update(m[0].id, newC).then(() => {
           setPersons(b.concat(newC))
           setNewArr(b.concat(newC))
+          setError(`Changed number of ${newName}`);
+          setTimeout(() => {
+            setError(null);
+          }, 3000);
           setNewName('')
           setNewNumb('')
-        });
+        }).catch(error => {
+          setError(`Information of ${newName} has already been removed from the server`);
+          services.getAll().then(response => {
+            setPersons(response);
+            setNewArr(response)
+          });
+          setTimeout(() => {
+          setError(null);
+        }, 3000);
+        })
         return;
       }
     }
 
     event.preventDefault()
+
+    const idcheck = persons.map((x) => x.id);
+    const maxId = idcheck.length > 0 ? Math.max(...idcheck) : 0;
+    const newId = maxId + 1;
+    
     const pObject = {
-      id: persons.length + 1,
+      id: newId,
       name: newName,
-      number: newNumb
-    }
+      number: newNumb,
+    };
 
     services.create(pObject).then(thing => {
       setPersons(persons.concat(pObject))
       setNewArr(persons.concat(pObject))
+      setError(`Added ${newName}`);
+      setTimeout(() => {
+        setError(null);
+      }, 3000);
       setNewName('')
       setNewNumb('')
+    }).catch(error => {
+      setError(`Already found ${newName}, updating`);
+      services.getAll().then(response => {
+        setPersons(response);
+        setNewArr(response)
+      });
+      setTimeout(() => {
+      setError(null);
+    }, 3000);
     })
 
       }  
