@@ -1,0 +1,20 @@
+{
+    "name": "blogilista",
+    "version": "1.0.0",
+    "description": "Blogilista sovellus",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js",
+        "dev": "nodemon index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.3.1",
+        "express": "^4.17.1",
+        "mongodb": "^5.6.0",
+        "mongoose": "^6.0.2",
+        "nodemon": "^2.0.12"
+    }
+}
