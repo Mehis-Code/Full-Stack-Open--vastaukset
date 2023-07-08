@@ -16,11 +16,13 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "bcrypt": "^5.1.0",
         "cors": "^2.8.5",
         "dotenv": "^16.0.3",
         "express": "^4.18.2",
         "lodash": "^4.17.21",
-        "mongoose": "^6.8.4"
+        "mongoose": "^7.3.2",
+        "mongoose-unique-validator": "^4.0.0"
     },
     "devDependencies": {
         "cross-env": "^7.0.3",

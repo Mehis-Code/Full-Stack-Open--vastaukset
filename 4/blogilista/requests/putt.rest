@@ -6,3 +6,11 @@ Content-Type: application/json
     "url": "xxxxx",
     "likes": 9999999999999
 }
+
+PUT http://localhost:3003/api/localhost:3003/api/users
+
+{
+    "username": "root",
+    "name": "Superuser",
+    "password": "salainen"
+}

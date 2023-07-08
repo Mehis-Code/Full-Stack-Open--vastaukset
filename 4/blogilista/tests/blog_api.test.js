@@ -3,27 +3,14 @@ const supertest = require('supertest')
 const app = require('../app')
 const api = supertest(app)
 const Blog = require('../models/blog')
+const helper = require('./test_helper')
 
-const initialNotes = [
-  {
-    title: 'Omenansyöntiblogi',
-    author: 'Mina',
-    url: 'http://omena.fi',
-    likes: 5
-  },
-  {
-    title: 'Banaanisyöntiblogi',
-    author: 'Sina',
-    url: 'http://banaani.fi',
-    likes: 10
-  }
-]
 
 beforeEach(async () => {
   await Blog.deleteMany({})
-  let blogObject = new Blog(initialNotes[0])
+  let blogObject = new Blog(helper.initialBlogs[0])
   await blogObject.save()
-  blogObject = new Blog(initialNotes[1])
+  blogObject = new Blog(helper.initialBlogs[1])
   await blogObject.save()
 })
 
@@ -40,7 +27,7 @@ describe('tests about getting and so on', () => {
       .get('/api/blogs')
       .expect(200)
 
-    expect(response.body.length).toBe(initialNotes.length)
+    expect(response.body.length).toBe(helper.initialBlogs.length)
   })
 
   test('the id is named "id" and not "_id"', async () => {
@@ -53,7 +40,7 @@ describe('tests about getting and so on', () => {
 
 describe('tests about posting and misc', () => {
   test('a blog can be posted', async () => {
-    const newBlog = initialNotes[0]
+    const newBlog = helper.initialBlogs[0]
 
     await api
       .post('/api/blogs')
@@ -63,7 +50,7 @@ describe('tests about posting and misc', () => {
 
     const response = await api.get('/api/blogs')
     const contents = response.body.map(r => r.title)
-    expect(response.body).toHaveLength(initialNotes.length + 1)
+    expect(response.body).toHaveLength(helper.initialBlogs.length + 1)
     expect(contents).toContain(
       'Omenansyöntiblogi')
 
@@ -128,8 +115,8 @@ describe('tests about posting and misc', () => {
         .send(updatedBlog)
         .expect(200)
 
-      const updatedResponse = await api.get(`/api/blogs/${id}`)
-      console.log(updatedResponse.body)
+      //const updatedResponse = await api.get(`/api/blogs/${id}`)
+      //console.log(updatedResponse.body)
     })
   })
 
