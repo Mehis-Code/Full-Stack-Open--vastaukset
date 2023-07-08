@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')
 const supertest = require('supertest')
 const app = require('../app')
-
 const api = supertest(app)
 const Blog = require('../models/blog')
 
@@ -102,6 +101,38 @@ describe('tests about posting and misc', () => {
       .expect(400)
 
   })
+
+  describe('put and delete tests', () => {
+
+    test('deleting a blog', async () => {
+      const response = await api.get('/api/blogs')
+      const id = response.body[0].id
+      await api
+        .delete(`/api/blogs/${id}`)
+        .expect(204)
+    })
+
+    test('updating a blog', async () => {
+      const response = await api.get('/api/blogs')
+      const id = response.body[0].id
+      const existingBlog = response.body[0]
+      const updatedBlog = {
+        ...existingBlog,
+        title: 'Päärynä',
+        url: 'http://paaryna.fi',
+        likes: 200000
+      }
+
+      await api
+        .put(`/api/blogs/${id}`)
+        .send(updatedBlog)
+        .expect(200)
+
+      const updatedResponse = await api.get(`/api/blogs/${id}`)
+      console.log(updatedResponse.body)
+    })
+  })
+
   afterAll(async () => {
     await mongoose.connection.close()
   })

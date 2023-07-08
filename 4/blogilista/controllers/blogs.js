@@ -1,33 +1,34 @@
 const blogsRouter = require('express').Router()
 const Blog = require('../models/blog')
-
-blogsRouter.get('/', (request, response) => {
-  Blog.find({})
-    .then(blogs => {
-      response.json(blogs)
-    })
-    .catch(error => next(error))
+blogsRouter.get('/', async (request, response, next) => {
+  try {
+    const blogs = await Blog.find({})
+    response.json(blogs)
+  } catch (error) {
+    next(error)
+  }
 })
 
-blogsRouter.get('/:id', (request, response, next) => {
-  Blog.findById(request.params.id)
-    .then(blog => {
-      if (blog) {
-        if (blog.likes === undefined) {
-          blog.likes = 0
-        }
-        response.json(blog)
-      } else {
-        response.status(404).end()
+blogsRouter.get('/:id', async (request, response, next) => {
+  try {
+    const blog = await Blog.findById(request.params.id)
+    if (blog) {
+      if (blog.likes === undefined) {
+        blog.likes = 0
       }
-    })
-    .catch(error => next(error))
+      response.json(blog)
+    } else {
+      response.status(404).end()
+    }
+  } catch (error) {
+    next(error)
+  }
 })
 
-blogsRouter.post('/', (request, response, next) => {
+blogsRouter.post('/', async (request, response, next) => {
   const body = request.body
   if (!body.title || !body.url) {
-    return response.status(400).json({ error: 'Title or URL is missing' })
+    return response.status(400).json({ error: 'Title or URL missing' })
   }
 
   const newBlog = new Blog({
@@ -37,23 +38,24 @@ blogsRouter.post('/', (request, response, next) => {
     likes: body.likes === undefined ? 0 : body.likes,
   })
 
-  newBlog
-    .save()
-    .then(savedBlog => {
-      response.status(201).json(savedBlog)
-    })
-    .catch(error => next(error))
+  try {
+    const savedBlog = await newBlog.save()
+    response.status(201).json(savedBlog)
+  } catch (error) {
+    next(error)
+  }
 })
 
-blogsRouter.delete('/:id', (request, response, next) => {
-  Blog.findByIdAndRemove(request.params.id)
-    .then(() => {
-      response.status(204).end()
-    })
-    .catch(error => next(error))
+blogsRouter.delete('/:id', async (request, response, next) => {
+  try {
+    await Blog.findByIdAndRemove(request.params.id)
+    response.status(204).end()
+  } catch (error) {
+    next(error)
+  }
 })
 
-blogsRouter.put('/:id', (request, response, next) => {
+blogsRouter.put('/:id', async (request, response, next) => {
   const body = request.body
 
   const updatedBlog = {
@@ -62,12 +64,14 @@ blogsRouter.put('/:id', (request, response, next) => {
     url: body.url,
     likes: body.likes
   }
+  try {
+    const updated = await Blog.findByIdAndUpdate(request.params.id, updatedBlog, { new: true, upsert: true })
 
-  Blog.findByIdAndUpdate(request.params.id, updatedBlog, { new: true })
-    .then(updatedBlog => {
-      response.json(updatedBlog)
-    })
-    .catch(error => next(error))
+    response.status(200).json(updated)
+  } catch (error) {
+    next(error)
+  }
 })
+
 
 module.exports = blogsRouter
