@@ -1,9 +1,9 @@
-POST http://localhost:3003/api/Blog s
+POST http://localhost:3003/api/blogs
 Content-Type: application/json
 
 {
   "title": "My New Blog",
   "author": "John Doe",
-  "url": "https://example.com/my-new-Blog ",
+  "url": "https://example.com/my-new-blog",
   "likes": 10
 }

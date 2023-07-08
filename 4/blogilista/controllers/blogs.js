@@ -13,6 +13,9 @@ blogsRouter.get('/:id', (request, response, next) => {
   Blog.findById(request.params.id)
     .then(blog => {
       if (blog) {
+        if (blog.likes === undefined) {
+          blog.likes = 0
+        }
         response.json(blog)
       } else {
         response.status(404).end()
@@ -23,18 +26,21 @@ blogsRouter.get('/:id', (request, response, next) => {
 
 blogsRouter.post('/', (request, response, next) => {
   const body = request.body
+  if (!body.title || !body.url) {
+    return response.status(400).json({ error: 'Title or URL is missing' })
+  }
 
   const newBlog = new Blog({
     title: body.title,
     author: body.author,
     url: body.url,
-    likes: body.likes || 0,
+    likes: body.likes === undefined ? 0 : body.likes,
   })
 
   newBlog
     .save()
     .then(savedBlog => {
-      response.json(savedBlog)
+      response.status(201).json(savedBlog)
     })
     .catch(error => next(error))
 })
