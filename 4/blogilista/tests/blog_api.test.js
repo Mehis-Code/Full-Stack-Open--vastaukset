@@ -5,7 +5,6 @@ const api = supertest(app)
 const Blog = require('../models/blog')
 const helper = require('./test_helper')
 
-
 beforeEach(async () => {
   await Blog.deleteMany({})
   let blogObject = new Blog(helper.initialBlogs[0])
@@ -51,9 +50,7 @@ describe('tests about posting and misc', () => {
     const response = await api.get('/api/blogs')
     const contents = response.body.map(r => r.title)
     expect(response.body).toHaveLength(helper.initialBlogs.length + 1)
-    expect(contents).toContain(
-      'Omenansyöntiblogi')
-
+    expect(contents).toContain('Omenansyöntiblogi')
   })
 
   test('if "likes"-field has no value, it is set to 0', async () => {
@@ -86,41 +83,39 @@ describe('tests about posting and misc', () => {
       .post('/api/blogs')
       .send(newBlog)
       .expect(400)
+  })
+})
 
+describe('put and delete tests', () => {
+  test('deleting a blog', async () => {
+    const response = await api.get('/api/blogs')
+    const id = response.body[0].id
+    await api
+      .delete(`/api/blogs/${id}`)
+      .expect(204)
   })
 
-  describe('put and delete tests', () => {
+  test('updating a blog', async () => {
+    const response = await api.get('/api/blogs')
+    const id = response.body[0].id
+    const existingBlog = response.body[0]
+    const updatedBlog = {
+      ...existingBlog,
+      title: 'Päärynä',
+      url: 'http://paaryna.fi',
+      likes: 200000
+    }
 
-    test('deleting a blog', async () => {
-      const response = await api.get('/api/blogs')
-      const id = response.body[0].id
-      await api
-        .delete(`/api/blogs/${id}`)
-        .expect(204)
-    })
+    await api
+      .put(`/api/blogs/${id}`)
+      .send(updatedBlog)
+      .expect(200)
 
-    test('updating a blog', async () => {
-      const response = await api.get('/api/blogs')
-      const id = response.body[0].id
-      const existingBlog = response.body[0]
-      const updatedBlog = {
-        ...existingBlog,
-        title: 'Päärynä',
-        url: 'http://paaryna.fi',
-        likes: 200000
-      }
-
-      await api
-        .put(`/api/blogs/${id}`)
-        .send(updatedBlog)
-        .expect(200)
-
-      //const updatedResponse = await api.get(`/api/blogs/${id}`)
-      //console.log(updatedResponse.body)
-    })
+    //const updatedResponse = await api.get(`/api/blogs/${id}`)
+    //console.log(updatedResponse.body)
   })
+})
 
-  afterAll(async () => {
-    await mongoose.connection.close()
-  })
+afterAll(async () => {
+  await mongoose.connection.close()
 })
