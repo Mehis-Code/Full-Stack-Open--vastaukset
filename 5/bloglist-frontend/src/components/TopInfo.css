@@ -1,0 +1,13 @@
+.error {
+    padding: 20px;
+    background-color: #651c17;
+    color: white;
+    margin-bottom: 15px;
+}
+  
+.added {
+    padding: 20px;
+    background-color: #2b572c;
+    color: white;
+    margin-bottom: 15px;
+}
