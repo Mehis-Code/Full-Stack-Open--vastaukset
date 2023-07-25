@@ -6,6 +6,7 @@ import LoginForm from './components/LoginForm'
 import CreateBlogs from './components/CreateBlogs'
 import BlogList from './components/BlogList'
 import TopInfo from './components/TopInfo'
+import Togglable from './components/Togglable'
 
 const App = () => {
   const [blogs, setBlogs] = useState([])
@@ -34,6 +35,8 @@ const App = () => {
     }
   }, [])
 
+  //const blogFormRef = useRef()
+
   const handleLogin = async event => {
     event.preventDefault()
     console.log('logging in with', username, password)
@@ -57,21 +60,21 @@ const App = () => {
     setUser(null)
   }
 
-
-
   return (
     <div>
       <h1>Blogs</h1>
       <TopInfo errorMessage={errorMessage} />
 
       {!user && (
-        <LoginForm
-          handleLogin={handleLogin}
-          username={username}
-          password={password}
-          setUsername={setUsername}
-          setPassword={setPassword}
-        />
+        <Togglable buttonLabel='login'>
+          <LoginForm
+            handleLogin={handleLogin}
+            username={username}
+            password={password}
+            handlePassWordChange={({ target }) => setPassword(target.value)}
+            HandleNameChange={({ target }) => setUsername(target.value)}
+          />
+        </Togglable>
       )}
 
       {user && (
@@ -80,10 +83,17 @@ const App = () => {
           <button onClick={() => handleLogout()}>logout</button>
         </div>
       )}
-
-
-      {user && (<CreateBlogs refreshPage={refreshPage} setBlogs={setBlogs} blogs={blogs} user={user} setErrorMessage={setErrorMessage} />)}
-      {user && (<BlogList blogs={blogs} user={user} />)}
+      <br />
+      {user && (
+        <Togglable buttonLabel='create new'>
+          <CreateBlogs
+            refreshPage={refreshPage}
+            setBlogs={setBlogs}
+            blogs={blogs}
+            user={user}
+            setErrorMessage={setErrorMessage} />
+        </Togglable>)}
+      {user && (<BlogList blogs={blogs} user={user} setBlogs={setBlogs} />)}
     </div>
   )
 }
