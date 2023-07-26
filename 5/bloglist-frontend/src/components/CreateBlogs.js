@@ -32,22 +32,22 @@ const CreateBlogs = ({ setBlogs, blogs, user, refreshPage, setErrorMessage }) =>
   return (
     <div>
       <h2>Create new</h2>
-      <form id={blogs.length} onSubmit={addBlog}>
+      <form id="createform" onSubmit={addBlog}>
         <div>
-          title:
-          <input ref={title} />
+          <label htmlFor="title">title:</label>
+          <input id="title" ref={title} />
         </div>
         <div>
-          author:
-          <input ref={author} />
+          <label htmlFor="author">author:</label>
+          <input id="author" ref={author} />
         </div>
         <div>
-          url:
-          <input ref={url} />
+          <label htmlFor="url">url:</label>
+          <input id="url" ref={url} />
         </div>
-        <button type="submit">create</button>
+        <button id="create" type="submit">create</button>
       </form>
-    </div >
+    </div>
   )
 }
 export default CreateBlogs

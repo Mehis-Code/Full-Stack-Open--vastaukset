@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 
 
-const Blog = ({ blog, user, blogs, setBlogs }) => {
+const Blog = ({ setErrorMessage, blog, user, blogs, setBlogs }) => {
   const [visible, setVisible] = useState(false)
   const [like, setLikes] = useState(blog.likes)
   const blogStyle = {
@@ -30,6 +30,10 @@ const Blog = ({ blog, user, blogs, setBlogs }) => {
     if (window.confirm(`Remove the blog ${blog.title} by author ${blog.author}?`)) {
       await blogService.remove(blog.id)
       setBlogs(blogs.filter(b => b.id !== blog.id))
+      setErrorMessage(`Blog ${blog.title} has been removed`)
+      setTimeout(() => {
+        setErrorMessage(null)
+      }, 5000)
     }
   }
 
@@ -41,20 +45,20 @@ const Blog = ({ blog, user, blogs, setBlogs }) => {
     <div style={blogStyle}>
       <div>
         <div>
-          Nimi: {`"${blog.title}"`} Kirjoittaja: {`"${blog.author}"`}   <button onClick={toggleVisibility}>{visible ? 'hide' : 'view'}</button>
+          Nimi: {`"${blog.title}"`} Kirjoittaja: {`"${blog.author}"`}   <button id="view" onClick={toggleVisibility}>{visible ? 'hide' : 'view'}</button>
         </div>
         {visible && (
           <div>
             <div>{blog.url}</div>
-            <div>
+            <div id={user.name}>
               {user.name}
             </div>
             <div>
-              {like} <button onClick={handleLike}>like</button>
+              {like} <button id="like" onClick={handleLike}>like</button>
             </div>
             <br></br>
             <div>
-              <button onClick={handleRemove}>remove</button>
+              <button id="removal" onClick={handleRemove}>remove</button>
             </div>
           </div>
         )}

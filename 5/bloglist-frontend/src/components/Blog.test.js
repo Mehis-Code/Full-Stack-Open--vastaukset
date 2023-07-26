@@ -68,4 +68,5 @@ describe('Blog component', () => {
 
     expect(setBlogs.mock.calls).toHaveLength(2)
   })
+
 })

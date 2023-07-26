@@ -4,499 +4,499 @@ module.exports = {
     module.exports = {
         // ...
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "testEnvironment": "jsdom",
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
-          "node_modules/(?!(react-native|my-project|redux-persist)/)"
+            "node_modules/(?!(react-native|my-project|redux-persist)/)"
         ],
         "moduleDirectories": [
-          "node_modules",
-          "src"
+            "node_modules",
+            "src"
         ],
         "modulePaths": [
-          "<rootDir>/src/"
+            "<rootDir>/src/"
         ],
         "setupFilesAfterEnv": [
-          "<rootDir>/src/setupTests.js"
+            "<rootDir>/src/setupTests.js"
         ],
         "testMatch": [
-          "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
-          "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx}"
         ],
         "testPathIgnorePatterns": [
-          "<rootDir>/node_modules/",
-          "<rootDir>/build/",
-          "<rootDir>/cypress/"
+            "<rootDir>/node_modules/",
+            "<rootDir>/build/",
+            "<rootDir>/cypress/"
         ],
         "transformIgnorePatterns": [
-          "/node_modules/(?!@babel).+\\.js$"
+            "/node_modules/(?!@babel).+\\.js$"
         ],
         "transform": {
-          "^.+\\.jsx?$": "babel-jest"
+            "^.+\\.jsx?$": "babel-jest"
         },
         "moduleNameMapper": {
-          "\\.(css|less|scss|sass)$": "identity-obj-proxy"
+            "\\.(css|less|scss|sass)$": "identity-obj-proxy"
         },
         "moduleFileExtensions": [
-          "js",
-          "jsx"
+            "js",
+            "jsx"
         ],
         "globals": {
-          "NODE_ENV": "test"
+            "NODE_ENV": "test"
         },
         "transformIgnorePatterns": [
 }

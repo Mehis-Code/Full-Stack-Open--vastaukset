@@ -93,7 +93,7 @@ const App = () => {
             user={user}
             setErrorMessage={setErrorMessage} />
         </Togglable>)}
-      {user && (<BlogList blogs={blogs} user={user} setBlogs={setBlogs} />)}
+      {user && (<BlogList setErrorMessage={setErrorMessage} blogs={blogs} user={user} setBlogs={setBlogs} />)}
     </div>
   )
 }
