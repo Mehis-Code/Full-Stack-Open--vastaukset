@@ -15,7 +15,7 @@ const Anecdote = ({ anecdote, handleClick }) => {
     )
 }
 
-const AnecdoteForm = () => {
+const AnecdoteList = () => {
     const dispatch = useDispatch()
     const anecdotes = useSelector(state => state)
 
@@ -33,4 +33,4 @@ const AnecdoteForm = () => {
     )
 }
 
-export default AnecdoteForm
+export default AnecdoteList
