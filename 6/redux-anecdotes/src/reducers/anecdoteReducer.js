@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { setNotification } from './notiReducer'
 
 const anecdotesAtStart = [
   'If it hurts, do it more often',
