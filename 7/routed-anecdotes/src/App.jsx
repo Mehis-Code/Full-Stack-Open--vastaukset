@@ -80,22 +80,23 @@ const CreateNew = (props) => {
       votes: 0
     })
   }
-
+  const remoReset = ({resetfi, ...rest}) => rest
+  
   return (
     <div>
       <h2>create a new anecdote</h2>
       <form onSubmit={handleSubmit}>
         <div>
           content
-          <input {...content} />
+          <input {...remoReset(content)} />
         </div>
         <div>
           author
-          <input {...author} />
+          <input {...remoReset(author)} />
         </div>
         <div>
           url for more info
-          <input {...info} />
+          <input {...remoReset(info)} />
         </div>
         <button>create</button>
         <button onClick={resetFields}>reset</button>
