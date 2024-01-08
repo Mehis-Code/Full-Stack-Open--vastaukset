@@ -3,18 +3,21 @@ import Blog from "./components/Blog";
 import blogService from "./services/blogs";
 import loginService from "./services/login";
 import storageService from "./services/storage";
-
+import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/Login";
 import NewBlog from "./components/NewBlog";
 import Notification from "./components/Notification";
 import Togglable from "./components/Togglable";
+import { createNotification } from "./reducers/notificationReducer";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
   const [user, setUser] = useState("");
   const [info, setInfo] = useState({ message: null });
-
   const blogFormRef = useRef();
+  //nämä
+  const notification = useSelector((state) => state.notification);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const user = storageService.loadUser();
@@ -26,14 +29,10 @@ const App = () => {
   }, []);
 
   const notifyWith = (message, type = "info") => {
-    setInfo({
-      message,
-      type,
-    });
-
+    dispatch(createNotification({ message, type }));
     setTimeout(() => {
-      setInfo({ message: null });
-    }, 3000);
+      dispatch(createNotification({ message: null }));
+    }, 5000);
   };
 
   const login = async (username, password) => {
@@ -54,10 +53,17 @@ const App = () => {
   };
 
   const createBlog = async (newBlog) => {
-    const createdBlog = await blogService.create(newBlog);
-    notifyWith(`A new blog '${newBlog.title}' by '${newBlog.author}' added`);
-    setBlogs(blogs.concat(createdBlog));
-    blogFormRef.current.toggleVisibility();
+    try {
+      const createdBlog = await blogService.create(newBlog);
+      notifyWith(`A new blog '${newBlog.title}' by '${newBlog.author}' added`);
+      setBlogs(blogs.concat(createdBlog));
+      blogFormRef.current.toggleVisibility();
+    } catch (e) {
+      notifyWith("error creating blog", "error");
+      setTimeout(() => {
+        dispatch(createNotification({ message: null }));
+      }, 5000);
+    }
   };
 
   const like = async (blog) => {
