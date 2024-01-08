@@ -9,14 +9,19 @@ import NewBlog from "./components/NewBlog";
 import Notification from "./components/Notification";
 import Togglable from "./components/Togglable";
 import { createNotification } from "./reducers/notificationReducer";
+import { useQuery } from "react-query";
+import Users from "./components/Users";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import axios from "axios";
 
 const App = () => {
   const [blogs, setBlogs] = useState([]);
+  const [userList, setUserList] = useState([]);
+
   const [user, setUser] = useState("");
-  const [info, setInfo] = useState({ message: null });
   const blogFormRef = useRef();
   //nämä
-  const notification = useSelector((state) => state.notification);
+  const info = useSelector((state) => state.notification);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -97,28 +102,42 @@ const App = () => {
   const byLikes = (b1, b2) => b2.likes - b1.likes;
 
   return (
-    <div>
-      <h2>blogs</h2>
-      <Notification info={info} />
+    <Router>
       <div>
-        {user.name} logged in
-        <button onClick={logout}>logout</button>
+        <h2>blogs</h2>
+        <Notification info={info} />
+        <div>
+          {user.name} logged in
+          <button onClick={logout}>logout</button>
+        </div>
+
+        <div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  {" "}
+                  <Togglable buttonLabel="new note" ref={blogFormRef}>
+                    <NewBlog createBlog={createBlog} />
+                  </Togglable>
+                  {blogs.sort(byLikes).map((blog) => (
+                    <Blog
+                      key={blog.id}
+                      blog={blog}
+                      like={() => like(blog)}
+                      canRemove={user && blog.user.username === user.username}
+                      remove={() => remove(blog)}
+                    />
+                  ))}
+                </div>
+              }
+            />
+            <Route path="/users" element={<Users />} />
+          </Routes>
+        </div>
       </div>
-      <Togglable buttonLabel="new note" ref={blogFormRef}>
-        <NewBlog createBlog={createBlog} />
-      </Togglable>
-      <div>
-        {blogs.sort(byLikes).map((blog) => (
-          <Blog
-            key={blog.id}
-            blog={blog}
-            like={() => like(blog)}
-            canRemove={user && blog.user.username === user.username}
-            remove={() => remove(blog)}
-          />
-        ))}
-      </div>
-    </div>
+    </Router>
   );
 };
 
